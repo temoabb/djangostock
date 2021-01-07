@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Hello World!</h1>
+<h2>Boom!</h2>
+<p>Now we are in base.html's block content!</p>
+
+
+<br><br>
+<h4>This is our API:</h4>
+
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+
+
+
+
+<!-- first if, that checks if we have got api in general: -->
+{% if api %}
+
+
+<!-- second if, that checks if api isn't an Error: -->
+	{% if api == 'Error...' %}
+		<h1>Hey, something weng wrong!</h1>
+	{% else %}
+		Country: <h3> {{ api.country }} </h3>
+		City: <h3> {{ api.city }} </h3>
+		<br>
+		Product Quantity: {{ api.product_quantity }}
+		<br>
+		Report Data: {{ api.report_date }}
+		<br>
+		Product type: {{ api.product_type }}
+		<br>
+		Event ID: {{ api.event_id }}
+		<br>
+		Status: {{ api.status }}
+		<br>
+		Termination Date: {{ api.termination_date }}
+		<br><br><br>
+
+		<!-- end of SECOND if -->
+	{% endif %}
+
+
+
+<!-- end of first if -->
+{% endif %}
+
+	
+
+
+
+
+{% endblock content %}
+
